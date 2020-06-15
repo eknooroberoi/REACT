@@ -1,12 +1,16 @@
+//it is not plain js file but a JSX file(includes html too)
 import React from "react";
 import ReactDOM from "react-dom";
 const fname = "Eknoor";
 const lname = "Oberoi";
-const no = "1";
+//const no = "1";
 //const year="2020";
+//all html attributes can be used in JSX but converting them into camel casing
+//ex: spellcheck to spellCheck
+const img = "https://picsum.photos/150";
 ReactDOM.render(
   <div>
-    <h1>Hello {fname + " " + lname}</h1>
+    <h1 className="heading">Hello {fname + " " + lname}</h1>
     <h1>
       Hello {fname} {lname}
     </h1>
@@ -14,6 +18,13 @@ ReactDOM.render(
     <p>My lucky number is {Math.floor(Math.random() * 10)}</p>
     <p>Created by {fname + " " + lname}</p>
     <p>Copyright {new Date().getFullYear()}</p>
+    <ul>
+      <li>Pasta</li>
+      <li>Maggie</li>
+    </ul>
+    <div>
+      <img src={img} />
+    </div>
   </div>,
   document.getElementById("root")
 );
