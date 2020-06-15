@@ -8,22 +8,28 @@ const lname = "Oberoi";
 //all html attributes can be used in JSX but converting them into camel casing
 //ex: spellcheck to spellCheck
 const img = "https://picsum.photos/150";
+const customStyle = {
+  color: "pink",
+  fontSize: "20px",
+  border: "1px solid black"
+};
+//instead of changing the part inside render, we can directly change customStyle in inline properties
+customStyle.color = "cyan";
 ReactDOM.render(
   <div>
     <h1 className="heading">Hello {fname + " " + lname}</h1>
     <h1>
       Hello {fname} {lname}
     </h1>
-
     <p>My lucky number is {Math.floor(Math.random() * 10)}</p>
     <p>Created by {fname + " " + lname}</p>
-    <p>Copyright {new Date().getFullYear()}</p>
+    <p style={customStyle}>Copyright {new Date().getFullYear()}</p>
     <ul>
       <li>Pasta</li>
       <li>Maggie</li>
     </ul>
     <div>
-      <img src={img} />
+      <img alt="random" src={img + "?grayscale"} />
     </div>
   </div>,
   document.getElementById("root")
