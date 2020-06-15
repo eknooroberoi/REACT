@@ -7,17 +7,41 @@
 //converts this into real Javascript using real JavaScript functions such as document.createElement
 
 //So in order to use this code we of course have to import React from the React module.
-import React from "react";
-
 //function name in Pascal case ie 1st letter capital
 //heading component, here heading component name is Heading
 //using ES6 feature to import components from separate file
-function Heading() {
-  //returns html element created using js
-  return <h1>My Favourite Foods</h1>;
-}
-
+//returns html element created using js
 //how do we actually get this file to know about this file?
 //Well we have to use the ES6 import export functionality.
+
+import React from "react";
+
+function Heading() {
+  const date = new Date();
+  const currentTime = date.getHours();
+
+  let greeting;
+
+  const customStyle = {
+    color: ""
+  };
+
+  if (currentTime < 12) {
+    greeting = "Good Morning";
+    customStyle.color = "red";
+  } else if (currentTime < 18) {
+    greeting = "Good Afternoon";
+    customStyle.color = "green";
+  } else {
+    greeting = "Good Night";
+    customStyle.color = "blue";
+  }
+
+  return (
+    <h1 className="heading" style={customStyle}>
+      {greeting}
+    </h1>
+  );
+}
 
 export default Heading;

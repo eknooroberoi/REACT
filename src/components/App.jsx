@@ -1,13 +1,10 @@
 import React from "react";
 import Heading from "./Heading"; //no need of putting extension
-import List from "./List";
 
 function App() {
   return (
     <div>
       <Heading />
-      <List />
-      <List />
     </div>
   );
 }
