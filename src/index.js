@@ -1,48 +1,36 @@
-//it is not plain js file but a JSX file(includes html too)
+//Create a React app from scratch.
+//Show a single h1 that says "Good morning" if between midnight and 12PM.
+//or "Good Afternoon" if between 12PM and 6PM.
+//or "Good evening" if between 6PM and midnight.
+//Apply the "heading" style in the styles.css
+//Dynamically change the color of the h1 using inline css styles.
+//Morning = red, Afternoon = green, Night = blue.
 import React from "react";
 import ReactDOM from "react-dom";
-const fname = "Eknoor";
-const lname = "Oberoi";
-//const no = "1";
-//const year="2020";
-//all html attributes can be used in JSX but converting them into camel casing
-//ex: spellcheck to spellCheck
-const img = "https://picsum.photos/150";
+//custom date
+//const date= new Date(2019,1,1,10);//morning
+const date = new Date();
+const currentTime = date.getHours();
+
+let greeting;
+//js object
 const customStyle = {
-  color: "pink",
-  fontSize: "20px",
-  border: "1px solid black"
+  color: ""
 };
-//instead of changing the part inside render, we can directly change customStyle in inline properties
-customStyle.color = "cyan";
+if (currentTime < 12) {
+  greeting = "Good Morning";
+  customStyle.color = "red";
+} else if (currentTime < 18) {
+  greeting = "Good Afternoon";
+  customStyle.color = "green";
+} else {
+  greeting = "Good Night";
+  customStyle.color = "blue";
+}
+
 ReactDOM.render(
-  <div>
-    <h1 className="heading">Hello {fname + " " + lname}</h1>
-    <h1>
-      Hello {fname} {lname}
-    </h1>
-    <p>My lucky number is {Math.floor(Math.random() * 10)}</p>
-    <p>Created by {fname + " " + lname}</p>
-    <p style={customStyle}>Copyright {new Date().getFullYear()}</p>
-    <ul>
-      <li>Pasta</li>
-      <li>Maggie</li>
-    </ul>
-    <div>
-      <img alt="random" src={img + "?grayscale"} />
-    </div>
-  </div>,
+  <h1 className="heading" style={customStyle}>
+    {greeting}
+  </h1>,
   document.getElementById("root")
 );
-//by using JSX, we were able to insert HTML into JavaScript.
-//It actually lets us add HTML inside a JavaScript
-//file and then insert JavaScript inside that HTML
-//ReactDOM puts html inside js, and {} puts js inside html
-//JSX is javascript XML, helps to write HTML inside js
-//big difference between expressions and statements is that an expression will be evaluated to
-//a value right? Like it ends up, after all the code's been executed,
-//it ends up equaling something. But this(statement) instead is actually asking the computer
-//to do some work to evaluate
-//this statement and then depending on that statement work out something.
-//statements control and perform actions but do not become a value
-//expression always resolve to a value
